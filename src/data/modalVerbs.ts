@@ -8,7 +8,7 @@ export interface ModalVerb {
 
 export interface Exercise {
   id: string;
-  type: 'multiple-choice' | 'fill-blank';
+  type: 'multiple-choice' | 'fill-blank' | 'youtube-listening';
   question: string;
   options: {
     id: string;
@@ -17,6 +17,15 @@ export interface Exercise {
   }[];
   explanation?: string;
   correctAnswer?: string;
+  youtubeId?: string;
+  lyrics?: {
+    line: string;
+    blanks: {
+      position: number;
+      answer: string;
+      explanation?: string;
+    }[];
+  }[];
 }
 
 export const modalVerbs: ModalVerb[] = [
@@ -176,3 +185,69 @@ export const exercises: Exercise[] = [
     explanation: "'Will' expresses future intention or promise. It shows determination and commitment to complete the task."
   }
 ];
+
+export const youtubeExercise: Exercise = {
+  id: "youtube1",
+  type: "youtube-listening",
+  question: "Listen to Billie Eilish's 'everything i wanted' and fill in the missing modal verbs:",
+  options: [], // Not used for this type
+  youtubeId: "qCTMq7xvdXU",
+  lyrics: [
+    {
+      line: "I had a dream",
+      blanks: []
+    },
+    {
+      line: "I got everything I wanted",
+      blanks: []
+    },
+    {
+      line: "Not what you'd think",
+      blanks: []
+    },
+    {
+      line: "And if I'm being honest",
+      blanks: []
+    },
+    {
+      line: "It _____ have been a nightmare",
+      blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
+    },
+    {
+      line: "To anyone whose standards are a little bit higher",
+      blanks: []
+    },
+    {
+      line: "They say, 'Be careful what you wish for'",
+      blanks: []
+    },
+    {
+      line: "And they _____ be right",
+      blanks: [{ position: 10, answer: "might", explanation: "'Might' indicates possibility or uncertainty about the truth of a statement." }]
+    },
+    {
+      line: "'Cause I thought I _____ fly",
+      blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
+    },
+    {
+      line: "So I stepped off the Golden",
+      blanks: []
+    },
+    {
+      line: "Nobody cried",
+      blanks: []
+    },
+    {
+      line: "Nobody even noticed",
+      blanks: []
+    },
+    {
+      line: "I saw them standing right there",
+      blanks: []
+    },
+    {
+      line: "Kinda thought they _____ care",
+      blanks: [{ position: 18, answer: "might", explanation: "'Might' expresses a weak possibility or hope about others' reactions." }]
+    }
+  ]
+};

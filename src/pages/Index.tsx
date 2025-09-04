@@ -5,9 +5,10 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ModalVerbCard } from "@/components/ModalVerbCard";
 import { ExerciseCard } from "@/components/ExerciseCard";
+import { YouTubeListeningCard } from "@/components/YouTubeListeningCard";
 import { ScoreDisplay } from "@/components/ScoreDisplay";
-import { modalVerbs, exercises } from "@/data/modalVerbs";
-import { BookOpen, Brain, Trophy, Sparkles } from "lucide-react";
+import { modalVerbs, exercises, youtubeExercise } from "@/data/modalVerbs";
+import { BookOpen, Brain, Trophy, Sparkles, Music } from "lucide-react";
 import heroImage from "@/assets/hero-education.jpg";
 
 const Index = () => {
@@ -15,6 +16,8 @@ const Index = () => {
   const [score, setScore] = useState(0);
   const [answeredQuestions, setAnsweredQuestions] = useState(0);
   const [selectedVerb, setSelectedVerb] = useState(modalVerbs[0]);
+  const [listeningScore, setListeningScore] = useState(0);
+  const [listeningAnswered, setListeningAnswered] = useState(false);
 
   const handleAnswer = (isCorrect: boolean) => {
     if (isCorrect) {
@@ -33,6 +36,18 @@ const Index = () => {
     setCurrentExercise(0);
     setScore(0);
     setAnsweredQuestions(0);
+  };
+
+  const handleListeningAnswer = (isCorrect: boolean) => {
+    if (isCorrect) {
+      setListeningScore(1);
+    }
+    setListeningAnswered(true);
+  };
+
+  const resetListening = () => {
+    setListeningScore(0);
+    setListeningAnswered(false);
   };
 
   return (
@@ -78,7 +93,7 @@ const Index = () => {
       {/* Main Content */}
       <div className="container mx-auto px-4 py-12">
         <Tabs defaultValue="learn" className="space-y-8">
-          <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto">
+          <TabsList className="grid w-full grid-cols-3 max-w-2xl mx-auto">
             <TabsTrigger value="learn" className="flex items-center gap-2">
               <BookOpen className="h-4 w-4" />
               Learn
@@ -86,6 +101,10 @@ const Index = () => {
             <TabsTrigger value="practice" className="flex items-center gap-2">
               <Brain className="h-4 w-4" />
               Practice
+            </TabsTrigger>
+            <TabsTrigger value="listen" className="flex items-center gap-2">
+              <Music className="h-4 w-4" />
+              Listen
             </TabsTrigger>
           </TabsList>
 
@@ -217,6 +236,39 @@ const Index = () => {
                 </div>
               </div>
             )}
+          </TabsContent>
+
+          {/* Listen Tab */}
+          <TabsContent value="listen" className="space-y-8">
+            <div className="text-center space-y-4">
+              <h2 className="text-3xl font-bold text-foreground">Listening Practice</h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                Listen to real songs and practice identifying modal verbs in context. Fill in the blanks as you hear them!
+              </p>
+            </div>
+
+            {/* Progress Display */}
+            <div className="flex items-center justify-center">
+              <ScoreDisplay score={listeningScore} total={1} />
+            </div>
+
+            {/* YouTube Exercise */}
+            <div className="max-w-4xl mx-auto">
+              <YouTubeListeningCard
+                question={youtubeExercise.question}
+                youtubeId={youtubeExercise.youtubeId!}
+                lyrics={youtubeExercise.lyrics!}
+                onAnswer={handleListeningAnswer}
+              />
+              
+              {listeningAnswered && (
+                <div className="mt-6 text-center">
+                  <Button onClick={resetListening} variant="outline">
+                    Try Again
+                  </Button>
+                </div>
+              )}
+            </div>
           </TabsContent>
         </Tabs>
       </div>
