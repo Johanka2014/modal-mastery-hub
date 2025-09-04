@@ -31,6 +31,17 @@ export const YouTubeListeningCard = ({
   const [showResults, setShowResults] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
+  // Create a flat array of all blanks with proper indexing
+  const allBlanks = lyrics.flatMap(line => line.blanks);
+
+  // Pre-calculate blank indices for each line
+  const lyricLinesWithIndices = lyrics.map((line, lineIndex) => {
+    const startIndex = lyrics.slice(0, lineIndex).reduce((acc, prevLine) => {
+      return acc + prevLine.blanks.length;
+    }, 0);
+    return { ...line, startIndex };
+  });
+
   const handleInputChange = (blankIndex: number, value: string) => {
     setAnswers(prev => ({
       ...prev,
@@ -41,7 +52,6 @@ export const YouTubeListeningCard = ({
   const handleSubmit = useCallback(() => {
     if (submitted) return;
 
-    const allBlanks = lyrics.flatMap(line => line.blanks);
     let correctCount = 0;
 
     allBlanks.forEach((blank, index) => {
@@ -54,54 +64,55 @@ export const YouTubeListeningCard = ({
     setShowResults(true);
     setSubmitted(true);
     onAnswer(isAllCorrect);
-  }, [answers, lyrics, onAnswer, submitted]);
+  }, [answers, allBlanks, onAnswer, submitted]);
 
-  const renderLyricLine = (lyricLine: LyricLine, lineIndex: number) => {
-    if (lyricLine.blanks.length === 0) {
+  const renderLyricLine = (lyricLineWithIndex: typeof lyricLinesWithIndices[0], lineIndex: number) => {
+    if (lyricLineWithIndex.blanks.length === 0) {
       return (
         <div key={lineIndex} className="text-muted-foreground py-1">
-          {lyricLine.line}
+          {lyricLineWithIndex.line}
         </div>
       );
     }
 
-    const parts = lyricLine.line.split('___');
-    let blankCounter = 0;
+    const parts = lyricLineWithIndex.line.split('___');
 
     return (
       <div key={lineIndex} className="text-muted-foreground py-1 flex flex-wrap items-center gap-2">
-        {parts.map((part, partIndex) => (
-          <span key={partIndex} className="flex items-center gap-2">
-            <span>{part}</span>
-            {partIndex < parts.length - 1 && (
-              <div className="relative inline-flex items-center">
-                <Input
-                  className="w-20 h-8 text-center text-sm"
-                  value={answers[blankCounter] || ''}
-                  onChange={(e) => handleInputChange(blankCounter, e.target.value)}
-                  disabled={submitted}
-                  placeholder="___"
-                />
-                {showResults && (
-                  <div className="absolute -right-8 top-0">
-                    {answers[blankCounter]?.toLowerCase() === 
-                     lyricLine.blanks[blankCounter - lineIndex * lyricLine.blanks.length]?.answer.toLowerCase() ? (
-                      <Check className="h-4 w-4 text-green-500" />
-                    ) : (
-                      <X className="h-4 w-4 text-red-500" />
-                    )}
-                  </div>
-                )}
-                {(() => { blankCounter++; return null; })()}
-              </div>
-            )}
-          </span>
-        ))}
+        {parts.map((part, partIndex) => {
+          const currentBlankIndex = lyricLineWithIndex.startIndex + partIndex;
+          
+          return (
+            <span key={partIndex} className="flex items-center gap-2">
+              <span>{part}</span>
+              {partIndex < parts.length - 1 && (
+                <div className="relative inline-flex items-center">
+                  <Input
+                    className="w-20 h-8 text-center text-sm"
+                    value={answers[currentBlankIndex] || ''}
+                    onChange={(e) => handleInputChange(currentBlankIndex, e.target.value)}
+                    disabled={submitted}
+                    placeholder="___"
+                  />
+                  {showResults && (
+                    <div className="absolute -right-8 top-0">
+                      {answers[currentBlankIndex]?.toLowerCase() === 
+                       lyricLineWithIndex.blanks[partIndex]?.answer.toLowerCase() ? (
+                        <Check className="h-4 w-4 text-green-500" />
+                      ) : (
+                        <X className="h-4 w-4 text-red-500" />
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+            </span>
+          );
+        })}
       </div>
     );
   };
 
-  const allBlanks = lyrics.flatMap(line => line.blanks);
   const allAnswered = allBlanks.every((_, index) => answers[index]?.trim());
 
   return (
@@ -136,7 +147,7 @@ export const YouTubeListeningCard = ({
 
         {/* Lyrics with blanks */}
         <div className="space-y-2 p-4 bg-muted/30 rounded-lg border font-mono text-sm leading-relaxed">
-          {lyrics.map((line, index) => renderLyricLine(line, index))}
+          {lyricLinesWithIndices.map((line, index) => renderLyricLine(line, index))}
         </div>
 
         {/* Submit Button */}
