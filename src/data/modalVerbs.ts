@@ -210,15 +210,15 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "It _ have been a nightmare",
+      line: "It ___ have been a nightmare",
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
-      line: "To anyone who _ care",
+      line: "To anyone who ___ care",
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
-      line: "'I thought I _ fly",
+      line: "'I thought I ___ fly",
       blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
     },
     {
@@ -238,7 +238,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "Kinda thought they _ care",
+      line: "Kinda thought they ___ care",
       blanks: [{ position: 18, answer: "might", explanation: "'Might' expresses a weak possibility or hope about others' reactions." }]
     },
     {
@@ -274,7 +274,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "If I _ change",
+      line: "If I ___ change",
       blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
     },
     {
@@ -306,7 +306,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "It _ have been a nightmare",
+      line: "It ___ have been a nightmare",
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
@@ -378,7 +378,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "If I _____ change",
+      line: "If I ___ change",
       blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
     },
     {
