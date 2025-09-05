@@ -214,19 +214,11 @@ export const youtubeExercise: Exercise = {
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
-      line: "To anyone whose standards are a little bit higher",
+      line: "To anyone who might care",
       blanks: []
     },
     {
-      line: "They say, 'Be careful what you wish for'",
-      blanks: []
-    },
-    {
-      line: "And they _____ be right",
-      blanks: [{ position: 10, answer: "might", explanation: "'Might' indicates possibility or uncertainty about the truth of a statement." }]
-    },
-    {
-      line: "'Cause I thought I _____ fly",
+      line: "'I thought I _____ fly",
       blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
     },
     {
@@ -248,6 +240,191 @@ export const youtubeExercise: Exercise = {
     {
       line: "Kinda thought they _____ care",
       blanks: [{ position: 18, answer: "might", explanation: "'Might' expresses a weak possibility or hope about others' reactions." }]
+    },
+    {
+      line: "I had a dream",
+      blanks: []
+    },
+    {
+      line: "I got everything I wanted",
+      blanks: []
+    },
+    {
+      line: "But when I wake up, I see",
+      blanks: []
+    },
+    {
+      line: "You with me",
+      blanks: []
+    },
+    {
+      line: "And you say, As long as I'm here",
+      blanks: []
+    },
+    {
+      line: "No one can hurt you",
+      blanks: []
+    },
+    {
+      line: "Don't wanna lie here",
+      blanks: []
+    },
+    {
+      line: "But you can learn to",
+      blanks: []
+    },
+    {
+      line: "If I _____ change",
+      blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
+    },
+    {
+      line: "The way that you see yourself",
+      blanks: []
+    },
+    {
+      line: "You wouldn't wonder why you hear",
+      blanks: []
+    },
+    {
+      line: "They don't deserve you",
+      blanks: []
+    },
+    {
+      line: "I tried to scream",
+      blanks: []
+    },
+    {
+      line: "but my head was underwater",
+      blanks: []
+    },
+    {
+      line: "They called me weak",
+      blanks: []
+    },
+    {
+      line: "Like I'm not somebody's daughter",
+      blanks: []
+    },
+    {
+      line: "It _____ have been a nightmare",
+      blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
+    },
+    {
+      line: "But it felt like they were right there",
+      blanks: []
+    },
+    {
+      line: "And it feels like yesterday was a year ago",
+      blanks: []
+    },
+    {
+      line: "But I don't wanna let anybody know",
+      blanks: []
+    },
+    {
+      line: "'Cause everybody wants something from me now",
+      blanks: []
+    },
+    {
+      line: "And I don't wanna let 'em down",
+      blanks: []
+    },
+    {
+      line: "I had a dream",
+      blanks: []
+    },
+    {
+      line: "I got everything I wanted",
+      blanks: []
+    },
+    {
+      line: "But when I wake up, I see",
+      blanks: []
+    },
+    {
+      line: "You with me",
+      blanks: []
+    },
+    {
+      line: "I had a dream",
+      blanks: []
+    },
+    {
+      line: "I got everything I wanted",
+      blanks: []
+    },
+    {
+      line: "But when I wake up, I see",
+      blanks: []
+    },
+    {
+      line: "You with me",
+      blanks: []
+    },
+    {
+      line: "And you say, As long as I'm here",
+      blanks: []
+    },
+    {
+      line: "No one can hurt you",
+      blanks: []
+    },
+    {
+      line: "Don't wanna lie here",
+      blanks: []
+    },
+    {
+      line: "But you can learn to",
+      blanks: []
+    },
+    {
+      line: "If I _____ change",
+      blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
+    },
+    {
+      line: "The way that you see yourself",
+      blanks: []
+    },
+    {
+      line: "You wouldn't wonder why you hear",
+      blanks: []
+    },
+    {
+      line: "They don't deserve you",
+      blanks: []
+    },
+    
+    {
+      line: "If I knew it all then would I do it again?'",
+      blanks: []
+    },
+    {
+      line: "Would I do it again?",
+      blanks: []
+    },
+    {
+      line: "If they knew what they said would go straight to my head",
+      blanks: []
+    },
+    {
+      line: "What would they say instead?",
+      blanks: []
+    },
+    {
+      line: "If I knew it all then would I do it again?",
+      blanks: []
+    },
+    {
+      line: "Would I do it again?",
+      blanks: []
+    },
+    {
+      line: "If they knew what they said would go straight to my head",
+      blanks: []
+    },
+    {
+      line: "What would they say instead?",
+      blanks: []
     }
   ]
 };
