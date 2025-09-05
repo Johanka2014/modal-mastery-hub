@@ -210,12 +210,12 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "It _ have been a nightmare",
+      line: "It have been a nightmare",
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
-      line: "To anyone who might care",
-      blanks: []
+      line: "To anyone who _ care",
+      blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
       line: "'I thought I _ fly",
