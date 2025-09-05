@@ -210,7 +210,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "It _____ have been a nightmare",
+      line: "It _ have been a nightmare",
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
@@ -218,7 +218,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "'I thought I _____ fly",
+      line: "'I thought I _ fly",
       blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
     },
     {
@@ -238,7 +238,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "Kinda thought they _____ care",
+      line: "Kinda thought they _ care",
       blanks: [{ position: 18, answer: "might", explanation: "'Might' expresses a weak possibility or hope about others' reactions." }]
     },
     {
@@ -274,7 +274,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "If I _____ change",
+      line: "If I _ change",
       blanks: [{ position: 15, answer: "could", explanation: "'Could' expresses past ability or possibility that was believed to be true." }]
     },
     {
@@ -306,7 +306,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "It _____ have been a nightmare",
+      line: "It _ have been a nightmare",
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
