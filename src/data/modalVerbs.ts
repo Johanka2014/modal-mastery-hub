@@ -210,7 +210,7 @@ export const youtubeExercise: Exercise = {
       blanks: []
     },
     {
-      line: "It have been a nightmare",
+      line: "It _ have been a nightmare",
       blanks: [{ position: 3, answer: "might", explanation: "'Might' expresses uncertainty or possibility about past events." }]
     },
     {
